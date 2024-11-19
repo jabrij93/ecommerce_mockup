@@ -206,8 +206,12 @@ $role = Auth::user()-> role ?? null
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <img src="{{ asset('storage/item_images/' . $item->images) }}" alt="Item Image" style="max-width: 200px; max-height: 150px;">
-                                </td> 
+                                <img src="{{ !empty($item->images) && file_exists(public_path('storage/item_images/' . $item->images)) 
+                                                    ? asset('storage/item_images/' . $item->images) 
+                                                    : 'https://picsum.photos/200/150?random=' . $item->id }}" 
+                                            alt="Item Image"  
+                                            style="max-width: 200px; max-height: 150px;">
+                                </td>
                                 
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900"> {{ $item->price }} </div>
