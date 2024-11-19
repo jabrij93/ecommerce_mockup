@@ -18,11 +18,12 @@ $role = Auth::user()-> role ?? null
         // Logic for Add Item and Update Item Button
         document.addEventListener("DOMContentLoaded", function () {
             const openModalButtons = document.querySelectorAll("#openModal, #openModalEdit");
-
+            const imagePreview = document.getElementById("imagePreview");
             const modal = document.getElementById("myModal");
             const modalTitle = document.getElementById("modalTitle");
             const form = modal.querySelector("form");
             const actionButton = form.querySelector("button[type='submit']");
+            const baseImagePath = "{{ asset('storage/item_images/') }}"; // Define the base path for images
 
             openModalButtons.forEach(button => {
                 button.addEventListener("click", async function () {
@@ -51,8 +52,17 @@ $role = Auth::user()-> role ?? null
                         productId.value = itemData.product_id;
                         
                         // Update image preview
-                        const imagePreview = document.getElementById("imagePreview");
-                        imagePreview.src = "{{ asset('storage/item_images/') }}" + "/" + itemData.images;
+                        if (itemData.images && itemData.images.trim() !== "") {
+                            // Construct local image path if an image exists
+                            const imagePath = baseImagePath + "/" + itemData.images + "?t=" + new Date().getTime();
+                            console.log("Using Local Image Path:", imagePath);
+                            imagePreview.src = imagePath;
+                        } else {
+                            // Use placeholder image if no local image exists
+                            const placeholder = "https://picsum.photos/250/200?random=" + itemData.id;
+                            console.log("Using Placeholder Image:", placeholder);
+                            imagePreview.src = placeholder;
+                        }
                     } else {
                         form.setAttribute('action', "/sales");
                         methodInput.value = "POST";
@@ -206,7 +216,7 @@ $role = Auth::user()-> role ?? null
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                <img src="{{ !empty($item->images) && file_exists(public_path('storage/item_images/' . $item->images)) 
+                                    <img src="{{ !empty($item->images) && file_exists(public_path('storage/item_images/' . $item->images)) 
                                                     ? asset('storage/item_images/' . $item->images) 
                                                     : 'https://picsum.photos/200/150?random=' . $item->id }}" 
                                             alt="Item Image"  
