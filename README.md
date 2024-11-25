@@ -1,4 +1,9 @@
-Guide to run the App
+Guide to run the app
+
+Before running the web-app, make sure the XAMPP settings are correct.
+Apache Web Server and MySQL Database settings both can be run.
+In case, it didn't run, usually it's because of port configuration. Make sure port configuration are set-up correctly.
+After both Apache Web Server and MySQL Database can be run, then just follow the following guide :
 
 1. composer install
 2. npm install
