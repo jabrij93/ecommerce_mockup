@@ -104,14 +104,21 @@ $role = Auth::user()-> role ?? null
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900"> {{ $no++ }}  </div>
                                     </td>
+
                                     <td class="px-6 py-4 whitespace-nowrap">
+                                    
                                         <a href="{{ route('item.detail', ['id' => $cartItem->id]) }}" class="text-sm text-gray-900">
                                             {{ $cartItem->name }}
+                                        @if (isset($cartItem->is_available) && !$cartItem->is_available)
+                                            <p class="text-red-500">This item is no longer available for sale.</p>
+                                        @endif
                                         </a>
                                     </td>
+                                    
                                     <!-- <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900"> {{ $cartItem->name }} </div>
                                     </td> -->
+                                    
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900"> {{ $cartItem->types ?? 'N/A' }} </div>
                                     </td>
@@ -123,9 +130,7 @@ $role = Auth::user()-> role ?? null
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900"> {{ $cartItem->price }} </div>
                                     </td>
-                                    @if (!$cartItem->is_available)
-                                        <p class="text-red-500">This item is no longer available for sale.</p>
-                                    @endif
+                                    
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <div class="flex items-center">
                                             <a href="detail" class="flex items-center mr-3" title="Add to Cart">
