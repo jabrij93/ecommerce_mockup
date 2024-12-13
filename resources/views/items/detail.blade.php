@@ -22,7 +22,7 @@ $role = Auth::user()-> role ?? null
                                 <i class="material-icons">share</i>
                                 <i class="material-icons">favorite_border</i>
                             </div>
-                            <img src="{{ asset('storage/item_images/' . $item->images) }}" alt="Item Image">
+                            <img src="{{ asset('storage/item_images/' . $item->images) }}" alt="">
                             <!-- <img src="https://res.cloudinary.com/john-mantas/image/upload/v1537291846/codepen/delicious-apples/green-apple-with-slice.png" alt="green apple slice"> -->
                         </div>
                         <div class="photo-album">
@@ -72,8 +72,4 @@ $role = Auth::user()-> role ?? null
             </div>
         </section>
     </div>    
-
-    <footer>
-        <p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
-    </footer>
 </x-app-layout>

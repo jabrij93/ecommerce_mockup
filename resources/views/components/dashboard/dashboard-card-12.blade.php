@@ -18,7 +18,7 @@
                     </div>
                     <div class="grow flex items-center border-b border-slate-100 text-sm py-2">
                         <div class="grow flex justify-between">
-                            <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900" href="#0">Kumar Singh</a> just clocked in for today <a class="font-medium text-slate-800" href="#0"></a> </div>
+                            <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900" href="#0">Kumar Singh</a> just bought pull-up bar ! <a class="font-medium text-slate-800" href="#0"></a> </div>
                             <div class="shrink-0 self-end ml-2">
                                 <a class="font-medium text-indigo-500 hover:text-indigo-600" href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
                             </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="grow flex items-center text-sm py-2">
                         <div class="grow flex justify-between">
-                            <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900" href="#0">Alvin</a> just clocked in for today <a class="font-medium text-slate-800" href="#0"></a></div>
+                            <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900" href="#0">Alvin</a> just did dips 20 minutes ago <a class="font-medium text-slate-800" href="#0"></a></div>
                             <div class="shrink-0 self-end ml-2">
                                 <a class="font-medium text-indigo-500 hover:text-indigo-600" href="#0">View<span class="hidden sm:inline"> -&gt;</span></a>
                             </div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="grow flex items-center border-b border-slate-100 text-sm py-2">
                         <div class="grow flex justify-between">
-                            <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900" href="#0">Azlinah</a> clocked out. OT. <a class="font-medium text-slate-800" href="#0"></a></div>
+                            <div class="self-center"><a class="font-medium text-slate-800 hover:text-slate-900" href="#0">Azlinah</a> did HIIT <a class="font-medium text-slate-800" href="#0"></a></div>
                         </div>
                     </div>
                 </li>
