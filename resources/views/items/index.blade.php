@@ -237,10 +237,13 @@ $role = Auth::user()-> role ?? null
                                         <!-- <a href="/sales/edit/{{ $item->id }}" class="flex items-center" title="Edit" id="openModal">
                                             <i class="fas fa-edit mr-2"></i>
                                         </a> -->
-                                        <a href="users/profile/delete/" class="flex items-center" title="Delete" onclick="return confirm('Confirm to delete data?')">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                        
+                                        <form action="{{ route('item.destroy', $item->id) }}" method="POST" class="inline-block" onsubmit="return confirm('Confirm to delete data?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="flex items-center" title="Delete">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
                                     </div> 
                                 </td>
                             </tr>

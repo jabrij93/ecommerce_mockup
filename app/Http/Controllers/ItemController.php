@@ -88,6 +88,20 @@ class ItemController extends Controller
         return redirect()->route('item.index')->with('success', 'Item has been updated successfully.');
     }
 
+    public function destroy($id)
+    {
+        $user = Item::findOrFail($id);
+
+        // Mark related cart items as unavailable
+        DB::table('cart')
+        ->where('product_id', $item->product_id)
+        ->update(['is_available' => false]);
+        
+        $user->delete();
+
+        return redirect()->route('item.index')->with('success', 'Item has been deleted successfully');
+    }
+
 
     public function detail($id) 
     {

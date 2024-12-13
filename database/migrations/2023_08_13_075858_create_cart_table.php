@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('product_id')->references('product_id')->on('items');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
     }

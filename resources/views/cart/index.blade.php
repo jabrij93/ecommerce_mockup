@@ -35,7 +35,7 @@ $role = Auth::user()-> role ?? null
 
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-gray-700">Item</label>
-                        <input type="text" name="item" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        <input type="text" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     </div>
 
                     <div class="mb-4">
@@ -123,6 +123,9 @@ $role = Auth::user()-> role ?? null
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900"> {{ $cartItem->price }} </div>
                                     </td>
+                                    @if (!$cartItem->is_available)
+                                        <p class="text-red-500">This item is no longer available for sale.</p>
+                                    @endif
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <div class="flex items-center">
                                             <a href="detail" class="flex items-center mr-3" title="Add to Cart">
