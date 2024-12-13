@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('product_id', 8)->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -34,6 +35,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::table('items', function (Blueprint $table) {
+            $table->dropSoftDeletes(); // Removes the 'deleted_at' column
+        });
     }
 };
